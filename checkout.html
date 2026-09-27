@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Pemesanan | Front One Resort Indraloka Temanggung</title>
+    <style>
+        /* === CSS DASAR & RESPONSIVE === */
+        :root {
+            --primary: #0284c7;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --gray: #64748b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.25rem; font-weight: bold; color: var(--primary); }
+        a { text-decoration: none; color: var(--primary); }
+
+        /* Grid Layout Checkout */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .checkout-grid { grid-template-columns: 1.5fr 1fr; }
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+        }
+        .flex-row {
+            display: flex;
+            gap: 1rem;
+        }
+        .flex-row > div {
+            flex: 1;
+        }
+
+        /* Rincian Pesanan (Summary) */
+        .summary-hotel {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .summary-room {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px dashed var(--border);
+            font-size: 1.35rem;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        /* Kupon & Tombol */
+        .coupon-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background: #f0f9ff;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+        }
+        .btn-primary:hover {
+            background: #0369a1;
+        }
+        
+        .badge-promo {
+            background: #d97706;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Front One Indraloka</div>
+        <div>
+            <a href="javascript:history.back()" style="color: var(--gray); font-weight: 500;">&larr; Kembali</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Selesaikan Pesanan Anda</h2>
+        <p style="color: var(--gray); margin-top: -10px;">Lengkapi data diri di bawah ini untuk mengonfirmasi pesanan.</p>
+
+        <div class="checkout-grid">
+            <!-- KOLOM KIRI: Data Tamu & Pembayaran -->
+            <div class="checkout-form">
+                
+                <!-- Data Tamu -->
+                <div class="card">
+                    <div class="card-title">1. Data Tamu</div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="firstName">Nama Depan</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="Contoh: Budi">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nama Belakang</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Contoh: Santoso">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="email@contoh.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon / WhatsApp</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="081234567890">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="requests">Permintaan Khusus (Opsional)</label>
+                        <textarea id="requests" class="form-control" rows="3" placeholder="Contoh: Check-in lebih awal, kasur tambahan..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Metode Pembayaran -->
+                <div class="card">
+                    <div class="card-title">2. Metode Pembayaran</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="payment" checked> Transfer Bank (Virtual Account)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="payment"> Kartu Kredit / Debit
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="payment"> Bayar di Hotel (Pay at Hotel)
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KOLOM KANAN: Rincian Pesanan (Akan Diupdate Otomatis via JavaScript) -->
+            <div class="checkout-summary">
+                <div class="card" style="position: sticky; top: 20px;">
+                    <div class="card-title">Rincian Pesanan</div>
+                    
+                    <div class="summary-hotel">Front One Resort Indraloka Temanggung</div>
+                    <div class="summary-room" id="display-room-name">Memuat Kamar...</div>
+
+                    <div class="summary-item">
+                        <span>Paket Promo:</span>
+                        <span><strong id="display-promo-name">Memuat Promo...</strong></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Check-in:</span>
+                        <span>14:00 WIB</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Check-out:</span>
+                        <span>12:00 WIB</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Durasi:</span>
+                        <span>1 Malam, 1 Kamar</span>
+                    </div>
+
+                    <!-- Kode Kupon -->
+                    <div style="margin-top: 1.5rem;">
+                        <label style="font-size: 0.9rem; color: var(--gray); display: block; margin-bottom: 0.5rem;">Punya Kode Kupon?</label>
+                        <div class="coupon-box">
+                            <input type="text" class="form-control" placeholder="Masukkan kode promo">
+                            <button class="btn-outline">Terapkan</button>
+                        </div>
+                    </div>
+
+                    <!-- Perhitungan Harga -->
+                    <div class="summary-item">
+                        <span>Harga Kamar</span>
+                        <span id="display-price">Rp 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Pajak & Biaya Layanan</span>
+                        <span style="color: #10b981;">Termasuk</span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Total Pembayaran</span>
+                        <span id="display-total-price">Rp 0</span>
+                    </div>
+
+                    <button class="btn-primary" style="margin-top: 1.5rem;" onclick="processBooking()">Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // SCRIPT PINTAR: Mengambil data dari Halaman Kamar (Smoking / Non-Smoking)
+        document.addEventListener("DOMContentLoaded", () => {
+            // Membaca URL (Contoh: ?room=Deluxe+Twin+Smoking&promo=FLASH+SALE&price=341026)
+            const params = new URLSearchParams(window.location.search);
+            
+            // Mengambil nilai, jika URL kosong maka beri nilai default
+            const roomName = params.get("room") || "Kamar Belum Dipilih";
+            const promoName = params.get("promo") || "Tarif Standar";
+            const price = parseInt(params.get("price")) || 0;
+
+            // Fungsi untuk mengubah format angka jadi Rupiah
+            const formatRupiah = (angka) => {
+                return new Intl.NumberFormat('id-ID', { 
+                    style: 'currency', 
+                    currency: 'IDR', 
+                    minimumFractionDigits: 0 
+                }).format(angka);
+            };
+
+            // Memasukkan data ke dalam halaman HTML
+            document.getElementById("display-room-name").textContent = roomName;
+            document.getElementById("display-promo-name").innerHTML = promoName + ' <span class="badge-promo">PROMO</span>';
+            document.getElementById("display-price").textContent = formatRupiah(price);
+            document.getElementById("display-total-price").textContent = formatRupiah(price);
+        });
+
+        // Simulasi Klik Pesan
+        function processBooking() {
+            const btn = document.querySelector('.btn-primary');
+            btn.textContent = "Memproses...";
+            btn.style.opacity = "0.7";
+            
+            setTimeout(() => {
+                alert("Booking Berhasil! Mengalihkan ke halaman pembayaran...");
+                // Disini nantinya bisa diarahkan ke payment gateway (Midtrans, dll)
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

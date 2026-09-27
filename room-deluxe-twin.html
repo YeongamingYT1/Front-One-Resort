@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deluxe Twin Non-Smoking | Front One Resort Indraloka Temanggung</title>
+    <meta name="description" content="Pesan kamar Deluxe Twin Non-Smoking dengan Android TV ukuran 23m2 di Front One Resort Indraloka Temanggung. Harga promo mulai Rp 373.505.">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* === CSS RESPONSIVE & GALERI === */
+        .room-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Desktop View (Grid 2 Kolom) */
+        @media (min-width: 768px) {
+            .room-detail-grid {
+                grid-template-columns: 1fr 380px;
+            }
+        }
+
+        /* Galeri Foto */
+        .gallery-container {
+            margin-bottom: 1.5rem;
+        }
+        .main-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .thumbnail-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        .thumb {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s, border-color 0.2s;
+            border: 2px solid transparent;
+        }
+        .thumb:hover { opacity: 0.9; }
+        .thumb.active {
+            opacity: 1;
+            border-color: var(--primary, #0284c7);
+        }
+
+        /* Package Card */
+        .package-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-2px);
+        }
+        .strike {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        .final-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #0f172a;
+            margin: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .facilities-list {
+            margin-top: 0.5rem;
+            padding-left: 1.25rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Front One Indraloka</div>
+        <div class="nav-links">
+            <a href="index.html">Kembali ke Home</a>
+        </div>
+    </nav>
+
+    <main class="container" style="margin-top: 1.5rem;">
+        <!-- Breadcrumb Navigation -->
+        <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #64748b;">
+            <a href="index.html" style="color: var(--primary, #0284c7); text-decoration: none;">Home</a> &gt; Kamar &gt; <strong>Deluxe Twin Non-Smoking</strong>
+        </p>
+
+        <h1 style="margin-bottom: 1rem;">Deluxe Twin (Non-Smoking)</h1>
+        
+        <div class="room-detail-grid">
+            <!-- Kolom Kiri: Galeri Foto, Deskripsi, & Fasilitas -->
+            <div>
+                <!-- Galeri Foto Interactive (Slider Thumbnail) -->
+                <div class="gallery-container">
+                    <img id="main-room-img" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80" alt="Kamar Deluxe Twin Non-Smoking Temanggung" class="main-img">
+                    <div class="thumbnail-row">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" class="thumb active" onclick="changeRoomImage(this.src, this)">
+                        <img src="https://images.unsplash.com/photo-1598928506311-c55dd10405d4?auto=format&fit=crop&w=800&q=80" class="thumb" onclick="changeRoomImage(this.src, this)">
+                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80" class="thumb" onclick="changeRoomImage(this.src, this)">
+                    </div>
+                </div>
+
+                <h3>Fasilitas Kamar (Ukuran: 23 m²)</h3>
+                <ul class="facilities-list">
+                    <li>2 Single Bed</li>
+                    <li>Non-Smoking Room (Bebas Asap Rokok)</li>
+                    <li>Android TV (YouTube, Netflix, dll)</li>
+                    <li>Air Conditioning Room (AC)</li>
+                    <li>Internet Access WiFi Complimentary</li>
+                    <li>Desk / Meja Kerja</li>
+                    <li>Complimentary Bottled Water</li>
+                </ul>
+
+                <p style="margin-top: 1rem; color: #e11d48; font-weight: 600; font-size: 0.9rem;">
+                    * Kebijakan: Refund and reschedule not allowed.
+                </p>
+            </div>
+
+            <!-- Kolom Kanan: Pilihan Promo & Tombol Booking ke Checkout -->
+            <div>
+                <h3 style="margin-bottom: 1rem;">Pilih Promo Anda</h3>
+                
+                <!-- Promo 1 -->
+                <div class="package-card">
+                    <h4 style="color: #d97706; margin-bottom: 0.25rem;">🔥 FLASH SALE</h4>
+                    <p style="font-size: 0.85rem; color: #64748b;">Termasuk: Room Breakfast (2 Food Packs)</p>
+                    <p class="strike">IDR 655.271</p>
+                    <div class="final-price">
+                        IDR 373.505 
+                        <span style="font-size: 0.75rem; font-weight: normal; color: white; background: #dc2626; padding: 2px 6px; border-radius: 4px;">43% OFF</span>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 1rem;">*Total untuk 1 kamar termasuk pajak & biaya</p>
+                    
+                    <button class="btn" style="width: 100%;" onclick="goToCheckout('Deluxe Twin Non-Smoking', 'FLASH SALE', '373505')">Lanjutkan Pemesanan (Checkout)</button>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="package-card">
+                    <h4 style="color: #2563eb; margin-bottom: 0.25rem;">✨ SEPTEMBER CERIA</h4>
+                    <p style="font-size: 0.85rem; color: #64748b;">Termasuk: Room Breakfast (2 Food Packs)</p>
+                    <p class="strike">IDR 655.271</p>
+                    <div class="final-price">
+                        IDR 386.610 
+                        <span style="font-size: 0.75rem; font-weight: normal; color: white; background: #2563eb; padding: 2px 6px; border-radius: 4px;">41% OFF</span>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 1rem;">*Total untuk 1 kamar termasuk pajak & biaya</p>
+                    
+                    <button class="btn" style="width: 100%;" onclick="goToCheckout('Deluxe Twin Non-Smoking', 'SEPTEMBER CERIA', '386610')">Lanjutkan Pemesanan (Checkout)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 4rem;">
+        <p>&copy; 2026 Front One Resort Indraloka Temanggung.</p>
+    </footer>
+
+    <script>
+        // Logika Pergantian Gambar Galeri (Mobile & Desktop)
+        function changeRoomImage(src, element) {
+            document.getElementById('main-room-img').src = src;
+            const thumbs = element.parentElement.querySelectorAll('.thumb');
+            thumbs.forEach(th => th.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Redirect Ke Halaman Checkout (Membawa Parameter Kamar & Harga)
+        function goToCheckout(roomName, promoName, price) {
+            const queryParams = new URLSearchParams({
+                room: roomName,
+                promo: promoName,
+                price: price
+            });
+            window.location.href = `checkout.html?${queryParams.toString()}`;
+        }
+    </script>
+</body>
+</html>
